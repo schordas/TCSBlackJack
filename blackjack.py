@@ -24,6 +24,9 @@ def main():
 	# Calls player choice function, returns value corresponding to the user's choice
 	playerTotal = playerTurn()
 
+	# TO DO:
+		# Could we put something here? 
+
 	# creates a string for the players total value for printing purposes
 	playerTotalStr = str(playerTotal)
 
@@ -108,6 +111,8 @@ def dealerTurn():
 
 	while(total<=17):
 		hitCard = draw()
+		if hitCard == 11 and (total + hitcard) > 21: # handles case where ace causes bust
+			hitcard = 1
 		total += hitCard
 
 	return total
@@ -134,6 +139,8 @@ def playerTurn():
 
 		if isYes(hitDecision):
 			hitCard = draw()
+			if hitCard == 11 and (total + hitcard) > 21: # handles case where ace causes bust
+				hitcard = 1
 			total += hitCard
 		else:
 			print("Now it is the dealer's turn.\n")
@@ -142,13 +149,13 @@ def playerTurn():
 		if total < 21:
 			hit = True
 		elif total == 21:
-			print("BlackJack, can't hit.\n")
+			print("Blackjack, can't hit.\n")
 			return 21
 		else:
 			print("Bust, can't hit.\n")
 			return 0
 
-	print("Welcome to The Coding School version of BlackJack\n")
+	print("Welcome to The Coding School version of Blackjack\n")
 
 	print("Let the game begin.\n")
 
