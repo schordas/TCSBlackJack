@@ -112,7 +112,7 @@ def dealerTurn():
 	while(total<=17):
 		hitCard = draw()
 		if hitCard == 11 and (total + hitcard) > 21: # handles case where ace causes bust
-			hitcard = 1
+			hitCard = 1
 		total += hitCard
 
 	return total
