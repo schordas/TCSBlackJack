@@ -24,9 +24,6 @@ def main():
 	# Calls player choice function, returns value corresponding to the user's choice
 	playerTotal = playerTurn()
 
-	# TO DO:
-		# Could we put something here?
-
 	# creates a string for the players total value for printing purposes
 	playerTotalStr = str(playerTotal)
 
@@ -40,13 +37,6 @@ def main():
 
 	print ("Dealer has: " + dealerTotalStr)
 
-
-
-	#*****************
-	# TO DO:
-		# We must determine who wins, how can we do that?
-		# Put your code here
-	#******************
 
 
 	if (playerTotal == 0):
@@ -123,7 +113,10 @@ def dealerTurn():
 
 	total = dealerFirstCard + dealerSecondCard
 
-	while(total<=17):
+	#TODO:
+		#Fill while loop
+
+	while( ):
 		hitCard = draw()
 		if hitCard == 11 and (total + hitcard) > 21: # handles case where ace causes bust
 			hitCard = 1
@@ -146,8 +139,9 @@ def playerTurn():
 	total = playerFirstCard + playerSecondCard
 
 
-
-	while(hit):
+	#TODO:
+		#Fill while loop
+	while( ):
 		totalStr = str(total)
 		hitDecision = raw_input("You have " + totalStr +".\nDo you want to hit? Yes or No\n")
 
