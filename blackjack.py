@@ -2,7 +2,7 @@
 # Made specifically for the middle school class at Beverly Vista School
 # as an introduction to IF statements.
 # This is skeleton code for the students.
-# They should fill in the "TO DO" section to determine the winner 
+# They should fill in the "TO DO" section to determine the winner
 # Code is setup to support more (yet still limted) users for future coding challenges.
 
 
@@ -25,16 +25,20 @@ def main():
 	playerTotal = playerTurn()
 
 	# TO DO:
-		# Could we put something here? 
+		# Could we put something here?
 
 	# creates a string for the players total value for printing purposes
 	playerTotalStr = str(playerTotal)
+
+	print ("You have: " + dealerTotalStr)
 
 	# Calls player choice function, returns value corresponding to the user's choice
 	dealerTotal = dealerTurn()
 
 	# creates a string for the players total value for printing purposes
 	dealerTotalStr = str(dealerTotal)
+
+	print ("Dealer has: " + dealerTotalStr)
 
 
 
@@ -45,6 +49,16 @@ def main():
 	#******************
 
 
+	if (playerTotal == 0):
+		print ("You lose")
+	elif (dealerTotal > 21):
+		print ("You win")
+	elif (playerTotal == 21):
+		print ("You win")
+	elif (playerTotal > dealerTotal):
+		print ("You win")
+	else:
+		print ("You lose")
 
 
 	playAgain = raw_input("Would you like to play again? Yes or No\n")
@@ -61,7 +75,7 @@ def isYes(inputVal):
 	while((not (inputVal == "yes")) and (not (inputVal == "no"))):
 		inputVal = raw_input("Please enter valid input\n")
 		inputVal.lower()
-		
+
 
 	if inputVal == "yes":
 		return True
@@ -126,9 +140,9 @@ def playerTurn():
 
 	playerFirstCard = draw()
 	playerSecondCard = draw()
-	
+
 	playerFirstCard = aceCheck(playerFirstCard, playerSecondCard)
-	
+
 	total = playerFirstCard + playerSecondCard
 
 
@@ -139,8 +153,10 @@ def playerTurn():
 
 		if isYes(hitDecision):
 			hitCard = draw()
-			if hitCard == 11 and (total + hitcard) > 21: # handles case where ace causes bust
+			if hitCard == 11 and (total + hitCard) > 21: # handles case where ace causes bust
 				hitcard = 1
+			print ("You drew a: ")
+			print (hitCard)
 			total += hitCard
 		else:
 			print("Now it is the dealer's turn.\n")
